@@ -1,0 +1,46 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#welcome{
+	background-image: url(cinderellacastle.jpg);
+	background-size: cover;
+
+}
+
+#hunt,h2{
+	display: inline-block;
+	margin-top: 60px;
+}
+
+.orbit-container{
+	width: 300px;
+	height: 300px;
+	color: white;
+	background-color: none;
+	z-index: 10;
+	margin: 85px auto;
+	margin-left: -115px;
+}
+
+$break-small: 320px;
+$break-large: 1024px;
+
+@media screen and (max-width: $break-large){.orbit-container {
+		margin: auto;
+		color: white;
+		width: 300px;
+		z-index: 10;
+	}
+	
+} 
+
+
+
+
+
+
+
+
+
+

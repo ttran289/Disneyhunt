@@ -1,0 +1,364 @@
+<body id ="welcome">
+ <nav class="top-bar" data-topbar >
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to 'The Hunt', root_path%></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <%if !current_user%>
+      <li ><%= link_to 'The Collection', badges_path%></li>
+      <li class="active"><%= link_to 'Where are all the badges', maps_path%></li>
+      <li ><%= link_to 'Go to the Gallery', pictures_path%></li>
+      <li><%= link_to "Sign in", new_sessions_path%></li>
+      <% else %>
+      <li class="active" ><%= link_to 'The Collection', badges_path%></li>
+      <li class = "has-dropdown">
+        <%= link_to 'Your Picture Collection', users_path%>
+          <ul class = "dropdown">
+            <li><%= link_to 'Collected Badges', my_badges_path%></li>
+          </ul>
+      </li>
+      <li class="active"><%= link_to 'Where are all the badges', maps_path%></li>
+      <li ><%= link_to 'Go to the Gallery', pictures_path%></li>
+      <li><%= link_to "Sign out", sessions_path, :method => :delete %></li>
+      <%end %>
+    </ul>
+  </section>
+</nav>
+
+  <div class="row" style ="margin-top: 70px">
+  	<aside class="large-3 columns" class ="text-center">
+      <ul data-orbit data-options="animation:fade; navigation_arrows:false; bullets:false;slide_number: false; animation:'fade';timer_speed: 900" class ="text-center">
+        <li>
+         <%= image_tag "badges/cinderella.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/belle.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/ariel.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/aurora.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/snowwhite.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/anna.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/elsa.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/merida.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/rapunzel.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/alice.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/attaant.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/baloo.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/beast.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/bobafett.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/bolt.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/boo.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/brerfox.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/brerrabbit.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/buzz.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/captainhook.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/chewy.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/chipndale.png"%>
+        </li>
+        <li>
+            <%= image_tag "badges/aladdin.png"%>
+          </li>
+        <li>
+         <%= image_tag "badges/cruella.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/daisy.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/darthvader.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/donald.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/eeyore.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/elastigirl.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/fairygodmother.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/fawn.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/flick.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/frozone.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/gaston.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/genie.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/gepetto.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/goofy.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/greenarmymen.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/handyman.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/iridessa.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/jafar.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/jesse.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/jiminy.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/launchpad.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/madhatter.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/maleficent.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/marypoppins.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/max.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/meg.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/mickey.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/minnie.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/mrincredible.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/mrsmee.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/mulan.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/peterpan.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/piglet.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/pinocchio.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/pluto.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/pooh.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/princeeric.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/queenofhearts.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/r2d2.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/rabbit.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/rafiki.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/rosetta.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/santa.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/scrooge.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/sevendwarfs.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/silvermist.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/snowwhitequeen.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/stormtrooper.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/sully.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/tigger.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/timon.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/tink.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/whiterabbit.png"%>
+        </li>
+        <li>
+         <%= image_tag "badges/woody.png"%>
+        </li>
+		</ul>
+ 
+      <!-- <div class="panel">
+        <h5>Featured</h5>
+        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+        <a href="#">Read More →</a>
+      </div> -->
+    </aside>
+    <div class="large-9 columns" role="content">
+ 
+      <article>
+ 
+        <h3>The Hunt<% if !current_user%>
+          	<%= link_to "Sign Up", new_user_path, class: "button tiny radius"%> 
+          	<%else%>
+          	<%end%>
+        </h3>
+            <div class="panel radius", style = "opacity:0.7">
+			  <h4>Explore the hidden treasures of Disney Land</h4>
+				<p>Receive rewards for taking pictures with Disney Characters while making a digital scrapbook of fun memories at Disneyland!</p>
+
+				<p>Disney Picture Collector is a fast, beautiful and fun way to go on a Disney Character Treasure hunt at Disneyland/ Disneyland California Adventure Park.</p>  
+
+				<p>Take a picture of yourself with a Disney character and post the picture to Disney Picture Collector. Once the picture is posted, you will receive a reward of a digital badge of the character you took the picture with that you can share with friends and family.</p>
+
+				<p>It’s a new and exciting way to experience Disneyland!</p>
+
+				<p>There are 77 digital badges… can you collect them all?</p>
+			</div>
+ 
+      </article>
+ 
+    </div>
+  </div>
+   <br>
+   <br>
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<!-- <div class="row">
+  <div class="large-4 columns" id ="badges">
+	  	<ul data-orbit data-options="animation:fade; navigation_arrows:false; bullets:false;slide_number: false; animation:'fade';timer_speed: 900">
+		  <li>
+		    <%= image_tag "Cinderella.png"%>
+		  </li>
+		  <li>
+		    <%= image_tag "elsa.png"%>
+		  </li>
+		  <li>
+		    <%= image_tag "meg.png"%>
+		  </li>
+		  <li>
+		    <%= image_tag "whiterabbit.png"%>
+		  </li>
+		  <li>
+		    <%= image_tag "woody.png"%>
+		  </li>
+		</ul>
+  </div>
+
+  <div class="large-8 columns" id ="hunt">
+  	<h2 class="text-left">The hunt</h2>
+  	<% if !current_user%>
+  	<%= link_to "Sign Up", new_user_path, class: "button tiny radius"%> 
+  	<%else%>
+  	<%end%>
+	  	<div class="panel radius", style = "opacity:0.7">
+		  <h4>Explore the hidden treasure of Disney Land</h4>
+			<p>Receive rewards for taking pictures with Disney Characters while making a digital scrapbook of fun memories at Disneyland!</p>
+
+			<p>Disney Picture Collector is a fast, beautiful and fun way to go on a Disney Character Treasure hunt at Disneyland/ Disneyland California Adventure Park.</p>  
+
+			<p>Take a picture of yourself with a Disney character and post the picture to Disney Picture Collector. Once the picture is posted, you will receive a reward of a digital badge of the character you took the picture with that you can share with friends and family.</p>
+
+			<p>It’s a new and exciting way to experience Disneyland!</p>
+
+			<p>There are 77 digital badges… can you collect them all?</p>
+		</div>
+  </div>
+</div> -->
