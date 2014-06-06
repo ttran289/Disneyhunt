@@ -52,5 +52,5 @@ gem 'will_paginate', '~> 3.0'
 gem "active_model_serializers"
 gem 'angularjs-rails'
 gem 'rails_12factor'
-
+gem 'pry'
 
