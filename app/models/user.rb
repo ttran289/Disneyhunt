@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     validates :password, length: { minimum: 6 }, on: :create
 	has_many :pictures
 	has_many :badges, through: :pictures
-	has_many :user_badges
+	
 	# use for gem bcrypt
 	has_secure_password
 	

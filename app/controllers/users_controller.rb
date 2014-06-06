@@ -13,7 +13,7 @@ respond_to :json, :html
 	def show
 		@user = User.find(params[:id])
 		@pictures = @user.pictures.all
-
+		
 	end
 
 	def create

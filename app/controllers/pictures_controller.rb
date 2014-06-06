@@ -1,8 +1,9 @@
 class PicturesController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	respond_to :json, :html
 	def index
-		@pictures = Picture.all
 		@pictures = Picture.paginate(:page => params[:page], :per_page => 9)
+		respond_with @pictures
 		# @pictures = Picture.latitude
 		# @pictures = Picture.longitude
 	end
@@ -12,6 +13,7 @@ class PicturesController < ApplicationController
 	# end
 
 	def show
+		respond_with @pictures
 		# @picture = Picture.find(params[:id])
 		# @pictures = Picture.all
 	end
@@ -27,9 +29,15 @@ class PicturesController < ApplicationController
 	def create
 		@picture = current_user.pictures.new(post_params)
 		if @picture.save
-			redirect_to users_path
+			respond_to do |format|
+	        format.html { redirect_to userss_path }
+	        format.json { render json: @picture, status: :created }
+		    end
 		else
-			render 'new'
+			respond_to do |format|
+	        format.html { render 'new' }
+	        format.json { render json: @picture.errors, status: :unprocessable_entity }
+		    end
 		end
 	end
 
@@ -38,15 +46,19 @@ class PicturesController < ApplicationController
 	end
 
 	def destroy
+
 		Picture.find(params[:id]).destroy
-		redirect_to users_path
+		respond_to do |format|
+	      format.html { redirect_to users_path }
+	      format.json { render json: { head: :ok } }
+		end
 	end
 
 
 	private
 		
 		def post_params
-			params.require(:picture).permit(:caption, :image, :badge_id)
+			params.require(:picture).permit(:caption, :image, :badge_id, :name)
 		end
 
 		def set_post
