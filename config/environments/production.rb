@@ -80,15 +80,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Amazon S3 setup
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['disneyhunt'],
+      :access_key_id => ENV['AKIAION4JXMSTZPVL4KA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
+
+
+  
 end
 
-# Amazon S3 setup
 
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['disneyhunt'],
-    :access_key_id => ENV['AKIAION4JXMSTZPVL4KA'],
-    :secret_access_key => ENV['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']
-  }
-}
