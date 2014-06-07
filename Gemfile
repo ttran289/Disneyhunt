@@ -53,4 +53,4 @@ gem "active_model_serializers"
 gem 'angularjs-rails'
 gem 'rails_12factor'
 gem 'pry'
-gem "figaro"
+
