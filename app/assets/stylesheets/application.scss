@@ -17,9 +17,14 @@
 
  
  */
-
+ #mapindex{
+ 	background-color: #2399d7
+ }
+#badgecollection{
+background-color: #2399d7
+}
  #collection {
-
+background-color: #2399d7
  }
 #badges{
 	border-radius: 5px;
@@ -47,6 +52,10 @@ background-size: cover;
 	background-image: url(signup.jpg);
 	background-size: cover;
 
+}
+#signin{
+	background-image: url(signup.jpg);
+	background-size: cover;
 }
 
  legend {
