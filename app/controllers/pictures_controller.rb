@@ -30,7 +30,7 @@ class PicturesController < ApplicationController
 		@picture = current_user.pictures.new(post_params)
 		if @picture.save
 			respond_to do |format|
-	        format.html { redirect_to userss_path }
+	        format.html { redirect_to users_path }
 	        format.json { render json: @picture, status: :created }
 		    end
 		else
