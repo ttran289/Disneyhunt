@@ -53,11 +53,13 @@
           <div class="row" style ="margin-top:30px">
             <% @pictures.each do |p| %>
             <div class="large-4 small-6 columns">
-    			  <a class="th" href="#"><%= image_tag p.image.url(:medium)%></a>
-			  <br>
-			  
+              <tr>
+    			  <td><a class="th" href="#"><%= image_tag p.image.url(:medium)%></a></td>
+            <br>
+			     <td><%=p.date%></td>
+           <br>
 			  <%= link_to 'Delete',p, method: :delete%>
-
+              </tr>
             </div>
             <% end %>
           </div>
