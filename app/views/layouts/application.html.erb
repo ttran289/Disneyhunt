@@ -177,13 +177,12 @@ function createDiv(height, width) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Disneyhunt" %></title>
   <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr","application" %>
     <script src="js/foundation/foundation.js"></script>
-  <script src="js/foundation/foundation.clearing.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
     <%= csrf_meta_tags %>
   </head>
 
