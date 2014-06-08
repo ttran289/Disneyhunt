@@ -3,8 +3,10 @@ respond_to :json, :html
 
 	def index
 		@pictures = current_user.pictures.paginate(:page => params[:page], :per_page => 8)
+		
 		respond_with @pictures
 	end
+
 	def new
 		@user = User.new
 	end
@@ -24,13 +26,13 @@ respond_to :json, :html
 		else
 			flash[:failure] = "Please enter a real email address and an 8 digit password"
 			render :new
-			end
+		end
 	end
 
 	
-protected
+	protected
 
-	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-	end
+		def user_params
+			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		end
 end

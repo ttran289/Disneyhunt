@@ -41,6 +41,13 @@
           <%= image_tag "badges/" + b.url%>
 
           <p class ="text-center"><%=b.name%></p>
+          <a href="#" data-reveal-id="myModal">Location of this badge</a>
+
+          <div id="myModal" class="reveal-modal" data-reveal>
+              <div id="map-canvas2"></div>
+              
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
       </div>
     </div>
     <%end%>
@@ -54,15 +61,7 @@
       <hr/>
       <div class="row">
         <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-          </ul>
+          <p>© Rocky Thach Zeke.</p>
         </div>
       </div>
     </div>
