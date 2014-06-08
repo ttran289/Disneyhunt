@@ -1,4 +1,8 @@
 class PicturesController < ApplicationController
+	
+
+
+	
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	respond_to :json, :html
 	def index

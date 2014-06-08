@@ -8,6 +8,9 @@ validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 	validates_attachment_presence :image
 	validates_attachment_content_type :image, :content_type => ['image/jpeg']
+	def b_url(image_size)
+		self.image.url(image_size).gsub("//s3.amazonaws.com/", "//s3-us-west-1.amazonaws.com/")
+	end
 	
 	def load_exif
 

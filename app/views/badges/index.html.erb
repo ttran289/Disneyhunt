@@ -32,16 +32,15 @@
   </section>
 </nav>
 <h1 style="text-align:center">Badge Gallery</h1>
-  <div class="row">
+<div x-ng-app="">
+  <div x-ng-init="badges=<%=Badge.all.to_json%>" class="row">
     <%if !current_user%>
-      <%@badges.each do |b|%>
-        <div class="large-3 columns small-6 columns">
+        <div x-ng-repeat="b in badges" class="large-3 columns small-6 columns">
           <div class="panel">
-              <%= image_tag "badges/" + b.url%>
-              <%= b.name%>
+              <img ng-src="/assets/badges/{{b.url}}"%>
+              {{b.name}}
           </div>
         </div>
-        <%end%>
       <%else%>
         <% @badges.each do |b|%>
           <div class="large-3 columns small-6 columns">
@@ -58,6 +57,7 @@
         <%end%>
     <%end%>    
   </div>
+</div><!--close the ng-app -->
 
 
   <footer class="row">

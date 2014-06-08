@@ -1,3 +1,4 @@
+<div ng-app="disney-app" class="container">
 <body id="pictureindex">
   <nav class="top-bar" data-topbar >
   <ul class="title-area">
@@ -33,92 +34,84 @@
 </nav> 
 <!-- end of nav bar -->
 <!-- begin the display -->
+<div ng-controller="PictureCtrl" ng-init="pics=<%=  %>">
+  <input ng-model ="searchPictures" type="text" class ="form-control">
 
- <div class="row" style="margin-top:30px">
-  <div class ="panel callout radius">
-  <div class="large-12 columns" >
-    
-      <%= image_tag "gallery.jpg" %>
-   
-</div>
-  <div class="large-12 columns" style="margin-top:20px">
- 
-          <div class="hide-for-small panel">
-            <h3 style="text-align:center">Memories</h3>
-            <h5 class="subheader" style="text-align:center">Photos of our Disney guests creating memories and earning badges
-            </h5>
-          </div>
-        </div>
-    <div class="large-12 columns">
- 
-      <div class="row">
- 
-        <div class="large-12 columns">
-          <div class="row">
-            <% @pictures.each do |p| %>
-            <div class="large-3 medium-4 small-6 columns">
-                <tr >
-                  <td><a class="th" href="#"><%= image_tag p.image(:medium) %></a></td>
-                  <td><%= p.caption %></td>
-                  <td><%= p.date%></td>
-                </tr>
-
-            </div>
-            <% end %>
-
-          </div>
- <div class="row">  
-<div class="digg_pagination">
-    <div class="page_info" >
-      <%= page_entries_info @pictures %>
-    </div>
-    <%= will_paginate @pictures, :container => false %>
+   <div class="row" style="margin-top:30px">
+    <div class ="panel callout radius">
+    <div class="large-12 columns" >
+        <%= image_tag "gallery.jpg" %>
   </div>
-</div>
-     
-          <div class="row" style ="margin-top:15px">
-            <div class="large-12 columns">
-              <div class="panel">
+      
+    <div class="large-12 columns" style="margin-top:20px">
+   
+            <div class="hide-for-small panel">
+              <h3 style="text-align:center">Memories</h3>
+              <h5 class="subheader" style="text-align:center">Photos of our Disney guests creating memories and earning badges
+              </h5>
+            </div>
+          </div>
+    <div class="large-12 columns">
+               
+            <div class="row">
+       
+              <div class="large-12 columns">
                 <div class="row">
- 
-                  <div class="large-2 small-6 columns">
-                    <%=image_tag "mickey.png" %>
+                  <% @pictures.each do |p| %>
+                  <div class="large-3 medium-4 small-6 columns">
+                      <tr >
+                        <td><a class="th" href="#"><%= image_tag p.image(:medium) %></a></td>
+                        <td><%= p.caption %></td>
+                        <td><%= p.date%></td>
+                      </tr>
+
                   </div>
- 
-                  <div class="large-10 small-6 columns">
-                    <strong>This Site Is Managed By<hr/></strong>
-                    <p>Rocky Thach and Zeke</p>
+                  <% end %>
+
+                </div>
+              <div class="row">  
+              <div class="digg_pagination">
+                  <div class="page_info" >
+                    <%= page_entries_info @pictures %>
                   </div>
- 
+                  <%= will_paginate @pictures, :container => false %>
+                </div>
+              </div>
+         
+        <div class="row" style ="margin-top:15px">
+          <div class="large-12 columns">
+            <div class="panel">
+              <div class="row">
+
+                <div class="large-2 small-6 columns">
+                  <%=image_tag "mickey.png" %>
+                </div>
+
+                <div class="large-10 small-6 columns">
+                  <strong>This Site Is Managed By<hr/></strong>
+                  <p>Rocky Thach and Zeke</p>
+                </div>
+
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-         </div>
-      </div>
+       </div>
+  </div>
 
- 
-     
- 
-      <footer class="row">
-        <div class="large-12 columns"><hr/>
-          <div class="row">
- 
-            <div class="large-6 columns">
-              <p>© Copyright no one at all. Go to town.</p>
+          <footer class="row">
+            <div class="large-12 columns"><hr/>
+              <div class="row">
+                <div class="large-6 columns">
+                  <p>© Copyright no one at all. Go to town.</p>
+                </div>
+              </div>
             </div>
- 
-            
- 
-          </div>
-        </div>
-      </footer>
- 
-     
- 
+          </footer>
     </div>
   </div>
+ </div><!--this close the ng-app  -->
 </body>
 
 <!-- <h1>How did they earn the badges???</h1>

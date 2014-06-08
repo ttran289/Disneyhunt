@@ -57,7 +57,7 @@
             <% @pictures.each do |p| %>
             <div class="large-4 small-6 columns">
               <tr>
-    			  <td><a class="th" href="#"><%= image_tag p.image.url(:medium)%></a></td>
+    			  <td><a class="th" href="#"><%= image_tag p.b_url(:medium)%></a></td>
             <br>
 			     <td>Taken on: <%=p.date%></td>
            <td><%=p.badge_id%></td>
