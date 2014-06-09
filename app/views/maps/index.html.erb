@@ -65,8 +65,8 @@
     <% @pictures.each do |p|%>
     markers = handler.addMarkers([
     {lat: <%=p.latitude%>,
-    lng: <%=p.longitude%>,
-	}
+    lng: <%=p.longitude%>
+	};
     
   ]);
     <%end%>
