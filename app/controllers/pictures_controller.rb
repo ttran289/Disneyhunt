@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	respond_to :json, :html
 	def index
-		@pictures = Picture.paginate(:page => params[:page], :per_page => 9)
+		@pictures = Picture.paginate(:page => params[:page], :per_page => 12)
 		respond_with @pictures
 		# @pictures = Picture.latitude
 		# @pictures = Picture.longitude

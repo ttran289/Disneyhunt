@@ -3,106 +3,107 @@
 
 <body id="userpictures">
   <nav class="top-bar" data-topbar >
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to 'Disney Tresure Hunt', root_path%></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <%if !current_user%>
-      <li ><%= link_to 'Badge Gallery', badges_path%></li>
-      <li class="active"><%= link_to 'Map of Badge Location', maps_path%></li>
-      <li ><%= link_to 'Photo Gallery of Guests', pictures_path%></li>
-      <li><%= link_to "Sign in", new_sessions_path%></li>
-      <% else %>
-      <li class="active" ><%= link_to 'Badge Gallery', badges_path%></li>
-      <li class = "has-dropdown">
-        <%= link_to 'Your Disney Memories', users_path%>
-          <ul class = "dropdown">
-            <li><%= link_to 'Your Badge Collection', my_badges_path%></li>
-          </ul>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'Disney Tresure Hunt', root_path%></h1>
       </li>
-      <li class="active"><%= link_to 'Map of Badge Location', maps_path%></li>
-      <li ><%= link_to 'Photo Gallery of Guests', pictures_path%></li>
-      <li><%= link_to "Sign out", sessions_path, :method => :delete %></li>
-      <%end %>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-  </section>
-</nav>
 
-<div class="row">
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <%if !current_user%>
+        <li ><%= link_to 'Badge Gallery', badges_path%></li>
+        <li class="active"><%= link_to 'Map of Badge Location', maps_path%></li>
+        <li ><%= link_to 'Photo Gallery of Guests', pictures_path%></li>
+        <li><%= link_to "Sign in", new_sessions_path%></li>
+        <% else %>
+        <li class="active" ><%= link_to 'Badge Gallery', badges_path%></li>
+        <li class = "has-dropdown">
+          <%= link_to 'Your Disney Memories', users_path%>
+            <ul class = "dropdown">
+              <li><%= link_to 'Your Badge Collection', my_badges_path%></li>
+            </ul>
+        </li>
+        <li class="active"><%= link_to 'Map of Badge Location', maps_path%></li>
+        <li ><%= link_to 'Photo Gallery of Guests', pictures_path%></li>
+        <li><%= link_to "Sign out", sessions_path, :method => :delete %></li>
+        <%end %>
+      </ul>
+    </section>
+  </nav>
+
+  <div class="row">
     <div class="large-12 columns">
       <div class ="panel callout radius" style="margin-top:30px">
         <div class="row">
- 
-        <div class="large-4 small-12 columns" style="margin-top:30px">
- 
-          <%=image_tag "mickey.png"%>
- 
-          <div class="hide-for-small panel" style ="margin-top:30px">
-            <h3>Memories</h3>
-            <h5 class="subheader">This is your Disney photo collection. All your memories are stored on this page. You can also click on a photo to see were your picture was taken. If you want to add a picture to your collection without earning a badge, click the new picture button below to upload any picture.
-            </h5>
-            <%= link_to 'New Picture', new_picture_path(current_user) %>
+          <div class="large-3 small-12 columns" style="margin-top:30px">
+            <%=image_tag "mickey.png"%>
+              <div class="hide-for-small panel" style ="margin-top:30px">
+                <h3>Memories</h3>
+                <h5 class="subheader">This is your Disney photo collection. All your memories are stored on this page. You can also click on a photo to see were your picture was taken. If you want to add a picture to your collection without earning a badge, click the new picture button below to upload any picture.
+                </h5>
+                <%= link_to 'New Picture', new_picture_path(current_user) %>
+              </div>
           </div>
-        </div>
  
-        <div class="large-8 columns">
-          <div class="row" style ="margin-top:30px">
-            <% @pictures.each do |p| %>
-            <div class="large-4 small-6 columns">
-              <tr>
-    			  <td><a class="th" href="#"><%= image_tag p.b_url(:medium)%></a></td>
-            <br>
-			     <td>Taken on: <%=p.date%></td>
-           <td><%=p.badge_id%></td>
-           <br>
-           <a href="#" data-reveal-id="myModal">Location of this picture</a>
-
-          <div id="myModal" class="reveal-modal" data-reveal>
-              <div id="map-canvas2"></div>
-              
-            <a class="close-reveal-modal">&#215;</a>
-          </div>
-           <br>
-			  <%= link_to 'Delete',p, method: :delete%>
-              </tr>
-            </div>
-            <% end %>
-          </div>
+          <div class="large-9 columns">
+            <div class="row" style ="margin-top:30px">
+                <ul class="clearing-thumbs " data-clearing>
+                  <% @pictures.each do |p| %>
+                    <li class="large-3 small-6 columns" style ="margin-right:0px">
+                        <a href= <%= p.b_url(:original) %> >
+                          <%= image_tag p.b_url(:medium)%>
+                        </a>
+                        <p style="margin-bottom:0px">Date: <%=p.date%></p>
+                        <%if p.badge%>
+                         <td>Badge: <a href="#" data-reveal-id="myModal"><%=p.badge.name%></a>
+                          <div id="myModal" class="reveal-modal" data-reveal>
+                          <div id="badge_earned"></div>
+                          <a class="close-reveal-modal">&#215;</a>
+                        </div>
+                         </td>
+                         <%else%>
+                         <td>Badge: n/a</td>
+                        <%end%>
+                           <br>
+                           <a href="#" data-reveal-id="myModal">Location</a>
+                            <div id="myModal" class="reveal-modal" data-reveal>
+                              <div id="map-canvas2"></div>
+                            <a class="close-reveal-modal">&#215;</a>
+                            </div>
+                           <br>
+                        <%= link_to 'Delete',p, method: :delete%>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+          </div><!--close the large 9 columns  -->
         </div>
       </div>
- </div>
+    </div><!--close the large 12 columns -->
+  </div><!--close the row -->
+
   <div class="row">  
-<div class="digg_pagination">
-    <div class="page_info" >
-      <%= page_entries_info @pictures %>
-    </div>
-    <%= will_paginate @pictures, :container => false %>
-  </div>
-</div>
-      <footer class="row">
-        <div class="large-12 columns"><hr/>
-          <div class="row">
- 
-            <div class="large-6 columns">
-              <p>© Copyright no one at all. Go to town.</p>
-            </div>
- 
- 
-          </div>
+    <div class="digg_pagination">
+        <div class="page_info" >
+          <%= page_entries_info @pictures %>
         </div>
-      </footer>
- 
-     
- 
-    </div>
+        <%= will_paginate @pictures, :container => false %>
+      </div>
   </div>
+
+  <footer class="row">
+    <div class="large-12 columns"><hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Copyright no one at all. Go to town.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 <script type="text/javascript">

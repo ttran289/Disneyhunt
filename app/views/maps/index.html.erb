@@ -36,28 +36,10 @@
 </nav>   
  
 <div class="row" >
-    
-     
-    <div class="large-9 columns" >
+    <div class="large-12 columns" >
       <h5>Badges can be earn through these spots</h5>
         <div id="map-canvas"></div>
     </div>
- 
- <aside class="large-3 columns" style="margin-top:25px">
-      <!-- <div class="row"> -->
-       <% @pictures.each do |p| %>
-            <div class="large-12">
-                <tr >
-                  <td><a class="th" href="#"><%= image_tag p.image(:medium) %></a></td>
-                  <td><%= p.caption %></td>
-                  <td><%= p.date%></td>
-                  <br>
-                  <td>Badge name:<%= p.badge.name%></td>
-                </tr>
-            </div>
-            <% end %>
-      <!-- </div> -->
-    </aside>
 </div>
  
    

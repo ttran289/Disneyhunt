@@ -3,7 +3,7 @@ respond_to :json, :html
 
 	def index
 		@pictures = current_user.pictures.paginate(:page => params[:page], :per_page => 8)
-		
+		@badges = Badge.all
 		respond_with @pictures
 	end
 

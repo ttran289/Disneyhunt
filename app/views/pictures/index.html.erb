@@ -1,4 +1,4 @@
-<div ng-app="disney-app" class="container">
+
 <body id="pictureindex">
   <nav class="top-bar" data-topbar >
   <ul class="title-area">
@@ -34,9 +34,6 @@
 </nav> 
 <!-- end of nav bar -->
 <!-- begin the display -->
-<div ng-controller="PictureCtrl" ng-init="pics=<%=  %>">
-  <input ng-model ="searchPictures" type="text" class ="form-control">
-
    <div class="row" style="margin-top:30px">
     <div class ="panel callout radius">
     <div class="large-12 columns" >
@@ -51,32 +48,36 @@
               </h5>
             </div>
           </div>
+
     <div class="large-12 columns">
-               
             <div class="row">
-       
               <div class="large-12 columns">
                 <div class="row">
+                  <ul class="clearing-thumbs" data-clearing>
                   <% @pictures.each do |p| %>
-                  <div class="large-3 medium-4 small-6 columns">
-                      <tr >
-                        <td><a class="th" href="#"><%= image_tag p.b_url(:medium) %></a></td>
-                        <td><%= p.caption %></td>
-                        <td><%= p.date%></td>
-                      </tr>
-
-                  </div>
+                  <li class="large-3 medium-4 small-6 columns" style="margin-right:0px">
+                      <a href=<%=p.b_url(:original)%>><%= image_tag p.b_url(:medium) %></a>
+                        <p style="margin-bottom:0px">Taken on: <%= p.date%></p>
+                            <%if p.badge%>
+                         <td>Badge: <a href="#" data-reveal-id="myModal"><%=p.badge.name%></a>
+                          <div id="myModal" class="reveal-modal" data-reveal>
+                          <div id="badge_earned"></div>
+                          <a class="close-reveal-modal">&#215;</a>
+                        </div>
+                         </td>
+                         <%else%>
+                         <td>Badge: n/a</td>
+                        <%end%>
                   <% end %>
-
                 </div>
-              <div class="row">  
+             <!--  <div class="row"> -->  
               <div class="digg_pagination">
                   <div class="page_info" >
                     <%= page_entries_info @pictures %>
                   </div>
                   <%= will_paginate @pictures, :container => false %>
                 </div>
-              </div>
+             <!--  </div> -->
          
         <div class="row" style ="margin-top:15px">
           <div class="large-12 columns">
@@ -111,7 +112,6 @@
           </footer>
     </div>
   </div>
- </div><!--this close the ng-app  -->
 </body>
 
 <!-- <h1>How did they earn the badges???</h1>
