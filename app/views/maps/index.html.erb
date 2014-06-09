@@ -64,10 +64,9 @@
     handler.buildMap ({ provider: {zoom: 16, provider_key: "AIzaSyDJJPOQH24cT6ETa9IZacS7NENpUt2MKzA"}, internal: {id: 'map-canvas'}}, function(){
     <% @pictures.each do |p|%>
     markers = handler.addMarkers([
-    
     {lat: <%=p.latitude%>,
     lng: <%=p.longitude%>,
-	},
+	}
     
   ]);
     <%end%>
